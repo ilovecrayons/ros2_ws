@@ -1,0 +1,23 @@
+running egg_info
+writing ../../build/fizzbuzz/fizzbuzz.egg-info/PKG-INFO
+writing dependency_links to ../../build/fizzbuzz/fizzbuzz.egg-info/dependency_links.txt
+writing entry points to ../../build/fizzbuzz/fizzbuzz.egg-info/entry_points.txt
+writing requirements to ../../build/fizzbuzz/fizzbuzz.egg-info/requires.txt
+writing top-level names to ../../build/fizzbuzz/fizzbuzz.egg-info/top_level.txt
+reading manifest file '../../build/fizzbuzz/fizzbuzz.egg-info/SOURCES.txt'
+writing manifest file '../../build/fizzbuzz/fizzbuzz.egg-info/SOURCES.txt'
+running build
+running build_py
+copying fizzbuzz/number_publisher.py -> /home/huang/ros2_ws/build/fizzbuzz/build/lib/fizzbuzz
+running install
+running install_lib
+copying /home/huang/ros2_ws/build/fizzbuzz/build/lib/fizzbuzz/number_publisher.py -> /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz
+byte-compiling /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz/number_publisher.py to number_publisher.cpython-312.pyc
+running install_data
+copying package.xml -> /home/huang/ros2_ws/install/fizzbuzz/share/fizzbuzz
+running install_egg_info
+removing '/home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/fizzbuzz/fizzbuzz.egg-info to /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz-0.0.0-py3.12.egg-info
+running install_scripts
+Installing number_publisher script to /home/huang/ros2_ws/install/fizzbuzz/lib/fizzbuzz
+writing list of installed files to '/home/huang/ros2_ws/build/fizzbuzz/install.log'

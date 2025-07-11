@@ -1,0 +1,7 @@
+{
+  "package_name": "fizzbuzz_interfaces",
+  "output_dir": "/home/huang/ros2_ws/build/fizzbuzz_interfaces/rosidl_generator_type_description/fizzbuzz_interfaces",
+  "idl_tuples": [
+    "/home/huang/ros2_ws/build/fizzbuzz_interfaces/rosidl_adapter/fizzbuzz_interfaces:msg/FizzBuzz.idl"
+  ]
+}

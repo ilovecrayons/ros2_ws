@@ -1,0 +1,90 @@
+[0.000000] (-) TimerEvent: {}
+[0.000816] (fizzbuzz) JobQueued: {'identifier': 'fizzbuzz', 'dependencies': OrderedDict()}
+[0.000896] (turtle_test) JobQueued: {'identifier': 'turtle_test', 'dependencies': OrderedDict()}
+[0.000935] (fizzbuzz) JobStarted: {'identifier': 'fizzbuzz'}
+[0.015529] (turtle_test) JobStarted: {'identifier': 'turtle_test'}
+[0.097784] (-) TimerEvent: {}
+[0.198351] (-) TimerEvent: {}
+[0.298846] (-) TimerEvent: {}
+[0.399456] (-) TimerEvent: {}
+[0.499964] (-) TimerEvent: {}
+[0.600474] (-) TimerEvent: {}
+[0.700960] (-) TimerEvent: {}
+[0.801507] (-) TimerEvent: {}
+[0.902075] (-) TimerEvent: {}
+[1.002620] (-) TimerEvent: {}
+[1.103152] (-) TimerEvent: {}
+[1.203533] (-) TimerEvent: {}
+[1.303977] (-) TimerEvent: {}
+[1.404450] (-) TimerEvent: {}
+[1.504858] (-) TimerEvent: {}
+[1.605272] (-) TimerEvent: {}
+[1.705654] (-) TimerEvent: {}
+[1.806033] (-) TimerEvent: {}
+[1.897157] (fizzbuzz) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/fizzbuzz', 'build', '--build-base', '/home/huang/ros2_ws/build/fizzbuzz/build', 'install', '--record', '/home/huang/ros2_ws/build/fizzbuzz/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/huang/ros2_ws/src/fizzbuzz', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'huang', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/huang', 'OLDPWD': '/home/huang/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '3439', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'huang', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'huang', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/huang/.npm-global/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/550X:@/tmp/.ICE-unix/3252,unix/550X:/tmp/.ICE-unix/3252', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/5793673a_7f68_489d_bcfc_c3e09995f94b', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.214', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/huang/ros2_ws/build/fizzbuzz', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/huang/ros2_ws/build/fizzbuzz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[1.906044] (turtle_test) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/turtle_test', 'build', '--build-base', '/home/huang/ros2_ws/build/turtle_test/build', 'install', '--record', '/home/huang/ros2_ws/build/turtle_test/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/huang/ros2_ws/src/turtle_test', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'huang', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/huang', 'OLDPWD': '/home/huang/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '3439', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'huang', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'huang', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/huang/.npm-global/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/550X:@/tmp/.ICE-unix/3252,unix/550X:/tmp/.ICE-unix/3252', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/5793673a_7f68_489d_bcfc_c3e09995f94b', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.214', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/huang/ros2_ws/build/turtle_test', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/huang/ros2_ws/build/turtle_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[1.908794] (-) TimerEvent: {}
+[2.009131] (-) TimerEvent: {}
+[2.109519] (-) TimerEvent: {}
+[2.209947] (-) TimerEvent: {}
+[2.310415] (-) TimerEvent: {}
+[2.380635] (fizzbuzz) StdoutLine: {'line': b'running egg_info\n'}
+[2.381393] (fizzbuzz) StdoutLine: {'line': b'creating ../../build/fizzbuzz/fizzbuzz.egg-info\n'}
+[2.382205] (turtle_test) StdoutLine: {'line': b'running egg_info\n'}
+[2.410534] (-) TimerEvent: {}
+[2.413889] (fizzbuzz) StdoutLine: {'line': b'writing ../../build/fizzbuzz/fizzbuzz.egg-info/PKG-INFO\n'}
+[2.414528] (fizzbuzz) StdoutLine: {'line': b'writing dependency_links to ../../build/fizzbuzz/fizzbuzz.egg-info/dependency_links.txt\n'}
+[2.414818] (fizzbuzz) StdoutLine: {'line': b'writing requirements to ../../build/fizzbuzz/fizzbuzz.egg-info/requires.txt\n'}
+[2.415010] (fizzbuzz) StdoutLine: {'line': b'writing top-level names to ../../build/fizzbuzz/fizzbuzz.egg-info/top_level.txt\n'}
+[2.415287] (fizzbuzz) StdoutLine: {'line': b"writing manifest file '../../build/fizzbuzz/fizzbuzz.egg-info/SOURCES.txt'\n"}
+[2.415738] (turtle_test) StdoutLine: {'line': b'writing ../../build/turtle_test/turtle_test.egg-info/PKG-INFO\n'}
+[2.416366] (turtle_test) StdoutLine: {'line': b'writing dependency_links to ../../build/turtle_test/turtle_test.egg-info/dependency_links.txt\n'}
+[2.416738] (turtle_test) StdoutLine: {'line': b'writing entry points to ../../build/turtle_test/turtle_test.egg-info/entry_points.txt\n'}
+[2.417157] (turtle_test) StdoutLine: {'line': b'writing requirements to ../../build/turtle_test/turtle_test.egg-info/requires.txt\n'}
+[2.417595] (turtle_test) StdoutLine: {'line': b'writing top-level names to ../../build/turtle_test/turtle_test.egg-info/top_level.txt\n'}
+[2.481239] (fizzbuzz) StdoutLine: {'line': b"reading manifest file '../../build/fizzbuzz/fizzbuzz.egg-info/SOURCES.txt'\n"}
+[2.482613] (fizzbuzz) StdoutLine: {'line': b"writing manifest file '../../build/fizzbuzz/fizzbuzz.egg-info/SOURCES.txt'\n"}
+[2.482967] (fizzbuzz) StdoutLine: {'line': b'running build\n'}
+[2.483164] (fizzbuzz) StdoutLine: {'line': b'running build_py\n'}
+[2.483380] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/build/fizzbuzz/build\n'}
+[2.483583] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/build/fizzbuzz/build/lib\n'}
+[2.483785] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/build/fizzbuzz/build/lib/fizzbuzz\n'}
+[2.483905] (fizzbuzz) StdoutLine: {'line': b'copying fizzbuzz/__init__.py -> /home/huang/ros2_ws/build/fizzbuzz/build/lib/fizzbuzz\n'}
+[2.484102] (fizzbuzz) StdoutLine: {'line': b'running install\n'}
+[2.485817] (turtle_test) StdoutLine: {'line': b"reading manifest file '../../build/turtle_test/turtle_test.egg-info/SOURCES.txt'\n"}
+[2.487624] (turtle_test) StdoutLine: {'line': b"writing manifest file '../../build/turtle_test/turtle_test.egg-info/SOURCES.txt'\n"}
+[2.487995] (turtle_test) StdoutLine: {'line': b'running build\n'}
+[2.488196] (turtle_test) StdoutLine: {'line': b'running build_py\n'}
+[2.488687] (turtle_test) StdoutLine: {'line': b'running install\n'}
+[2.497076] (fizzbuzz) StdoutLine: {'line': b'running install_lib\n'}
+[2.501666] (turtle_test) StdoutLine: {'line': b'running install_lib\n'}
+[2.510685] (-) TimerEvent: {}
+[2.532325] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz\n'}
+[2.532799] (fizzbuzz) StdoutLine: {'line': b'copying /home/huang/ros2_ws/build/fizzbuzz/build/lib/fizzbuzz/__init__.py -> /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz\n'}
+[2.533789] (fizzbuzz) StdoutLine: {'line': b'byte-compiling /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz/__init__.py to __init__.cpython-312.pyc\n'}
+[2.534353] (fizzbuzz) StdoutLine: {'line': b'running install_data\n'}
+[2.534836] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/install/fizzbuzz/share/ament_index\n'}
+[2.535191] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/install/fizzbuzz/share/ament_index/resource_index\n'}
+[2.535364] (fizzbuzz) StdoutLine: {'line': b'creating /home/huang/ros2_ws/install/fizzbuzz/share/ament_index/resource_index/packages\n'}
+[2.535512] (fizzbuzz) StdoutLine: {'line': b'copying resource/fizzbuzz -> /home/huang/ros2_ws/install/fizzbuzz/share/ament_index/resource_index/packages\n'}
+[2.535629] (fizzbuzz) StdoutLine: {'line': b'copying package.xml -> /home/huang/ros2_ws/install/fizzbuzz/share/fizzbuzz\n'}
+[2.535737] (fizzbuzz) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.539513] (turtle_test) StdoutLine: {'line': b'running install_data\n'}
+[2.539892] (turtle_test) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.571226] (fizzbuzz) StdoutLine: {'line': b'Copying ../../build/fizzbuzz/fizzbuzz.egg-info to /home/huang/ros2_ws/install/fizzbuzz/lib/python3.12/site-packages/fizzbuzz-0.0.0-py3.12.egg-info\n'}
+[2.572901] (fizzbuzz) StdoutLine: {'line': b'running install_scripts\n'}
+[2.575098] (turtle_test) StdoutLine: {'line': b"removing '/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[2.576028] (turtle_test) StdoutLine: {'line': b'Copying ../../build/turtle_test/turtle_test.egg-info to /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test-0.0.0-py3.12.egg-info\n'}
+[2.577997] (turtle_test) StdoutLine: {'line': b'running install_scripts\n'}
+[2.610857] (-) TimerEvent: {}
+[2.711374] (-) TimerEvent: {}
+[2.811880] (-) TimerEvent: {}
+[2.823233] (fizzbuzz) StdoutLine: {'line': b"writing list of installed files to '/home/huang/ros2_ws/build/fizzbuzz/install.log'\n"}
+[2.828262] (turtle_test) StdoutLine: {'line': b'Installing pose_subscriber script to /home/huang/ros2_ws/install/turtle_test/lib/turtle_test\n'}
+[2.829385] (turtle_test) StdoutLine: {'line': b"writing list of installed files to '/home/huang/ros2_ws/build/turtle_test/install.log'\n"}
+[2.884286] (fizzbuzz) CommandEnded: {'returncode': 0}
+[2.901465] (fizzbuzz) JobEnded: {'identifier': 'fizzbuzz', 'rc': 0}
+[2.903911] (turtle_test) CommandEnded: {'returncode': 0}
+[2.912580] (-) TimerEvent: {}
+[2.913575] (turtle_test) JobEnded: {'identifier': 'turtle_test', 'rc': 0}
+[2.915480] (-) EventReactorShutdown: {}

@@ -1,0 +1,37 @@
+[1.205s] Invoking command in '/home/huang/ros2_ws/src/turtle_test': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/turtle_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtle_test build --build-base /home/huang/ros2_ws/build/turtle_test/build install --record /home/huang/ros2_ws/build/turtle_test/install.log --single-version-externally-managed install_data
+[1.483s] running egg_info
+[1.483s] creating ../../build/turtle_test/turtle_test.egg-info
+[1.492s] writing ../../build/turtle_test/turtle_test.egg-info/PKG-INFO
+[1.493s] writing dependency_links to ../../build/turtle_test/turtle_test.egg-info/dependency_links.txt
+[1.493s] writing entry points to ../../build/turtle_test/turtle_test.egg-info/entry_points.txt
+[1.493s] writing requirements to ../../build/turtle_test/turtle_test.egg-info/requires.txt
+[1.493s] writing top-level names to ../../build/turtle_test/turtle_test.egg-info/top_level.txt
+[1.493s] writing manifest file '../../build/turtle_test/turtle_test.egg-info/SOURCES.txt'
+[1.514s] reading manifest file '../../build/turtle_test/turtle_test.egg-info/SOURCES.txt'
+[1.514s] writing manifest file '../../build/turtle_test/turtle_test.egg-info/SOURCES.txt'
+[1.514s] running build
+[1.514s] running build_py
+[1.514s] creating /home/huang/ros2_ws/build/turtle_test/build
+[1.514s] creating /home/huang/ros2_ws/build/turtle_test/build/lib
+[1.514s] creating /home/huang/ros2_ws/build/turtle_test/build/lib/turtle_test
+[1.515s] copying turtle_test/pose_subscriber.py -> /home/huang/ros2_ws/build/turtle_test/build/lib/turtle_test
+[1.515s] copying turtle_test/__init__.py -> /home/huang/ros2_ws/build/turtle_test/build/lib/turtle_test
+[1.515s] running install
+[1.519s] running install_lib
+[1.529s] creating /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test
+[1.529s] copying /home/huang/ros2_ws/build/turtle_test/build/lib/turtle_test/pose_subscriber.py -> /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test
+[1.529s] copying /home/huang/ros2_ws/build/turtle_test/build/lib/turtle_test/__init__.py -> /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test
+[1.529s] byte-compiling /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/pose_subscriber.py to pose_subscriber.cpython-312.pyc
+[1.530s] byte-compiling /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/__init__.py to __init__.cpython-312.pyc
+[1.530s] running install_data
+[1.530s] creating /home/huang/ros2_ws/install/turtle_test/share/ament_index
+[1.530s] creating /home/huang/ros2_ws/install/turtle_test/share/ament_index/resource_index
+[1.530s] creating /home/huang/ros2_ws/install/turtle_test/share/ament_index/resource_index/packages
+[1.530s] copying resource/turtle_test -> /home/huang/ros2_ws/install/turtle_test/share/ament_index/resource_index/packages
+[1.530s] copying package.xml -> /home/huang/ros2_ws/install/turtle_test/share/turtle_test
+[1.530s] running install_egg_info
+[1.541s] Copying ../../build/turtle_test/turtle_test.egg-info to /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test-0.0.0-py3.12.egg-info
+[1.541s] running install_scripts
+[1.616s] Installing pose_subscriber script to /home/huang/ros2_ws/install/turtle_test/lib/turtle_test
+[1.616s] writing list of installed files to '/home/huang/ros2_ws/build/turtle_test/install.log'
+[1.641s] Invoked command in '/home/huang/ros2_ws/src/turtle_test' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/turtle_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtle_test build --build-base /home/huang/ros2_ws/build/turtle_test/build install --record /home/huang/ros2_ws/build/turtle_test/install.log --single-version-externally-managed install_data
