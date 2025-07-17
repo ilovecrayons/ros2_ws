@@ -1,2 +1,3 @@
 [console_scripts]
 pose_subscriber = turtle_test.pose_subscriber:main
+turtle_controller = turtle_test.turtle_controller:main

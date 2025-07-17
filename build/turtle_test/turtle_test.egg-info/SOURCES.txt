@@ -14,3 +14,4 @@ test/test_flake8.py
 test/test_pep257.py
 turtle_test/__init__.py
 turtle_test/pose_subscriber.py
+turtle_test/turtle_controller.py

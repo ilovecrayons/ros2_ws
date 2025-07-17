@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'pose_subscriber = turtle_test.pose_subscriber:main'
+            'pose_subscriber = turtle_test.pose_subscriber:main',
+            'turtle_controller = turtle_test.turtle_controller:main'
         ],
     },
 )

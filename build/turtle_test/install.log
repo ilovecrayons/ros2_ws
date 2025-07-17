@@ -1,6 +1,8 @@
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/pose_subscriber.py
+/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/turtle_controller.py
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/__init__.py
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/__pycache__/pose_subscriber.cpython-312.pyc
+/home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/__pycache__/turtle_controller.cpython-312.pyc
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test/__pycache__/__init__.cpython-312.pyc
 /home/huang/ros2_ws/install/turtle_test/share/ament_index/resource_index/packages/turtle_test
 /home/huang/ros2_ws/install/turtle_test/share/turtle_test/package.xml
@@ -12,3 +14,4 @@
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test-0.0.0-py3.12.egg-info/zip-safe
 /home/huang/ros2_ws/install/turtle_test/lib/python3.12/site-packages/turtle_test-0.0.0-py3.12.egg-info/top_level.txt
 /home/huang/ros2_ws/install/turtle_test/lib/turtle_test/pose_subscriber
+/home/huang/ros2_ws/install/turtle_test/lib/turtle_test/turtle_controller

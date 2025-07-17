@@ -9,7 +9,7 @@ class PoseSubNode(Node):
         super().__init__('pose_subscriber')
         self.get_logger().info('Node One has been started')
         self.pose_subscriber_ = self.create_subscription(Pose, "/turtle1/pose", self.pose_callback, 10)
-
+    
         # Add your node logic here
     def pose_callback(self, msg):
         self.get_logger().info('('+str(msg.x)+', '+str(msg.y)+str(msg.theta)+')')
