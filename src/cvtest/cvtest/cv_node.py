@@ -4,29 +4,41 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 import cv2
 from cv_bridge import CvBridge
+from .linreg import process
 
 class CvNode(Node):
     def __init__(self):
         super().__init__('cv_node')
         self.get_logger().info('CV Node has been started')
+        self.last_callback_time = self.get_clock().now()
+        self.min_interval = 0.5 
         self.camera_subscriber_ = self.create_subscription(
             Image, '/camera/image_raw', self.camera_callback, 10) 
         self.camera_subscriber_.use_intra_process_comms = True
-
+        
     def camera_callback(self, msg):
+        current_time = self.get_clock().now()
+        dt = (current_time - self.last_callback_time).nanoseconds / 1e9
+        if dt < self.min_interval:
+            return
+        
+        self.last_callback_time = current_time
         self.get_logger().info('Received image with width: %d, height: %d' % (msg.width, msg.height))
-        image = msg.data
 
         if not hasattr(self, 'bridge'):
             self.bridge = CvBridge()
         self.get_logger().info(f'Image encoding: {msg.encoding}')
-
+        
         # convert img format
         try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-            
-            height, width, channels = cv_image.shape
-            self.get_logger().info(f'Processed image: {width}x{height}, {channels} channels')
+            if msg.encoding == 'mono8' or msg.encoding == 'mono16':
+                cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='mono8')
+                
+                cv_image = cv2.cvtColor(cv_image, cv2.COLOR_GRAY2BGR)
+            else:
+                cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+     
+            process(cv_image)
             
         except Exception as e:
             self.get_logger().error(f'Error converting image: {str(e)}')
@@ -36,4 +48,6 @@ def main(args=None):
     node = CvNode()
     rclpy.spin(node)  
     rclpy.shutdown()
-        
+
+if __name__ == '__main__':
+    main()

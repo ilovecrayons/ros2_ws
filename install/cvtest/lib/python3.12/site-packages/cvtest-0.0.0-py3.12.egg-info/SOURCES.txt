@@ -10,6 +10,7 @@ setup.py
 ../../build/cvtest/cvtest.egg-info/zip-safe
 cvtest/__init__.py
 cvtest/cv_node.py
+cvtest/linreg.py
 resource/cvtest
 test/test_copyright.py
 test/test_flake8.py

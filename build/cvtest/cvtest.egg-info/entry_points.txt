@@ -1,2 +1,2 @@
 [console_scripts]
-cv_node = cvtest.cvnode:main
+cv_node = cvtest.cv_node:main

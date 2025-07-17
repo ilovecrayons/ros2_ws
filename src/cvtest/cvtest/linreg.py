@@ -11,12 +11,7 @@ AR_MIN        = 2.5
 X_CLUSTER_PX  = 10       
 VERTICAL_DEG  = 75.0   
 VAR_RATIO     = 0.5      
-
 SLOPE_LIMIT = np.tan(np.deg2rad(VERTICAL_DEG))
-
-downward = glob.glob("frames/*.png")
-images = [cv2.imread(j, cv2.IMREAD_COLOR) for j in downward]
-print(f"{len(images)} images in dataset")
 
 
 def calculate_regression(points, slope_limit=SLOPE_LIMIT, var_ratio=VAR_RATIO):
@@ -123,8 +118,7 @@ def _cluster_metrics(cluster):
         vert_score=vert_score
     )
 
-def select_best_vertical_band(contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX):
-
+def select_best_vertical_band(contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX, thresh=None):
     infos = _large_contour_info(contours, area_min=area_min)
     if not infos:
         return None, False, None, None, False
@@ -141,68 +135,67 @@ def select_best_vertical_band(contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_
 
     return mask, is_vertical, best['xc'], best, True
 
-fig, ax = plt.subplots(nrows=80, ncols=4, figsize=(14, 280))
-axes = ax.flatten()
 
-def process(images):
-    for a, img in zip(axes, images):
-        imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+def process(img):
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(7, 7))
+   
+    imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-        kernel_dilation = np.ones((5, 5), np.uint8)
-        dilation = cv2.dilate(imgray, kernel_dilation, iterations=4)
+    kernel_dilation = np.ones((5, 5), np.uint8)
+    dilation = cv2.dilate(imgray, kernel_dilation, iterations=4)
+    
+    kernel_blur = np.ones((5, 5), np.float32) / 25
+    blur = cv2.filter2D(dilation, -1, kernel_blur)
+    
+    _, thresh = cv2.threshold(blur, 254, 255, cv2.THRESH_BINARY)
+    
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    
+    mask, cluster_vertical, xc, cluster_info, found_big = select_best_vertical_band(
+        contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX, thresh=thresh
+    )
+    
+    if found_big:
+        pts_src = mask
+    else:
+        pts_src = thresh  
+    
+    pts = np.column_stack(np.nonzero(pts_src))
+    
+    force_vertical = cluster_vertical and found_big
+    
+    if force_vertical:
+        m = b = np.nan
+        vertical = True
+        x0 = xc
+    else:
+        m, b, vertical, x0 = calculate_regression(pts)
+    
+    #display_img = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
+    #display_img = cv2.cvtColor(imgray, cv2.COLOR_GRAY2BGR)
+    display_img = (img)
+    for cnt in contours:
+        if cv2.contourArea(cnt) < AREA_MIN:
+            continue
+        x, y, w, h = cv2.boundingRect(cnt)
+        cv2.rectangle(display_img, (x, y), (x + w, y + h), (0, 255, 0), 5)
+    
+    if found_big and cluster_info is not None:
+        x = int(cluster_info['x']); y = int(cluster_info['y'])
+        w = int(cluster_info['w']); h = int(cluster_info['h'])
+        cv2.rectangle(display_img, (x, y), (x + w, y + h), (255, 0, 255), 5)
+    
+    if vertical:
+        x = int(np.clip(round(x0), 0, imgray.shape[1] - 1))
+        ax.plot([x, x], [0, imgray.shape[0] - 1], color='lime', linewidth=5)
+    elif not np.isnan(m) and not np.isnan(b):
+        x1, y1, x2, y2 = find_inliers(m, b, imgray.shape, vertical=False)
+        ax.plot([x1, x2], [y1, y2], color='lime', linewidth=3)
+    else:
+        ax.set_title("No valid line")
         
-        kernel_blur = np.ones((5, 5), np.float32) / 25
-        blur = cv2.filter2D(dilation, -1, kernel_blur)
+    ax.imshow(cv2.cvtColor(display_img, cv2.COLOR_BGR2RGB))
+    ax.axis('off')
         
-        _, thresh = cv2.threshold(blur, 254, 255, cv2.THRESH_BINARY)
-        
-        contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        
-        mask, cluster_vertical, xc, cluster_info, found_big = select_best_vertical_band(
-            contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX
-        )
-        
-        if found_big:
-            pts_src = mask
-        else:
-            pts_src = thresh  
-        
-        pts = np.column_stack(np.nonzero(pts_src))
-        
-        force_vertical = cluster_vertical and found_big
-        
-        if force_vertical:
-            m = b = np.nan
-            vertical = True
-            x0 = xc
-        else:
-            m, b, vertical, x0 = calculate_regression(pts)
-        
-        #display_img = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
-        #display_img = cv2.cvtColor(imgray, cv2.COLOR_GRAY2BGR)
-        display_img = (img)
-        for cnt in contours:
-            if cv2.contourArea(cnt) < AREA_MIN:
-                continue
-            x, y, w, h = cv2.boundingRect(cnt)
-            cv2.rectangle(display_img, (x, y), (x + w, y + h), (0, 255, 0), 5)
-        
-        if found_big and cluster_info is not None:
-            x = int(cluster_info['x']); y = int(cluster_info['y'])
-            w = int(cluster_info['w']); h = int(cluster_info['h'])
-            cv2.rectangle(display_img, (x, y), (x + w, y + h), (255, 0, 255), 5)
-        
-        if vertical:
-            x = int(np.clip(round(x0), 0, imgray.shape[1] - 1))
-            a.plot([x, x], [0, imgray.shape[0] - 1], color='lime', linewidth=5)
-        elif not np.isnan(m) and not np.isnan(b):
-            x1, y1, x2, y2 = find_inliers(m, b, imgray.shape, vertical=False)
-            a.plot([x1, x2], [y1, y2], color='lime', linewidth=3)
-        else:
-            a.set_title("No valid line")
-            
-        a.imshow(cv2.cvtColor(display_img, cv2.COLOR_BGR2RGB))
-        a.axis('off')
-            
     plt.tight_layout()
-    plt.show()
+    #plt.show()
