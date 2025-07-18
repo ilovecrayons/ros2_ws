@@ -1,0 +1,27 @@
+[0.912s] Invoking command in '/home/huang/ros2_ws/src/cvtest': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/cvtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cvtest build --build-base /home/huang/ros2_ws/build/cvtest/build install --record /home/huang/ros2_ws/build/cvtest/install.log --single-version-externally-managed install_data
+[1.105s] running egg_info
+[1.114s] writing ../../build/cvtest/cvtest.egg-info/PKG-INFO
+[1.115s] writing dependency_links to ../../build/cvtest/cvtest.egg-info/dependency_links.txt
+[1.115s] writing entry points to ../../build/cvtest/cvtest.egg-info/entry_points.txt
+[1.115s] writing requirements to ../../build/cvtest/cvtest.egg-info/requires.txt
+[1.115s] writing top-level names to ../../build/cvtest/cvtest.egg-info/top_level.txt
+[1.134s] reading manifest file '../../build/cvtest/cvtest.egg-info/SOURCES.txt'
+[1.134s] writing manifest file '../../build/cvtest/cvtest.egg-info/SOURCES.txt'
+[1.134s] running build
+[1.135s] running build_py
+[1.135s] copying cvtest/linreg.py -> /home/huang/ros2_ws/build/cvtest/build/lib/cvtest
+[1.135s] copying cvtest/cv_node.py -> /home/huang/ros2_ws/build/cvtest/build/lib/cvtest
+[1.135s] running install
+[1.139s] running install_lib
+[1.148s] copying /home/huang/ros2_ws/build/cvtest/build/lib/cvtest/linreg.py -> /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest
+[1.148s] copying /home/huang/ros2_ws/build/cvtest/build/lib/cvtest/cv_node.py -> /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest
+[1.149s] byte-compiling /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest/linreg.py to linreg.cpython-312.pyc
+[1.150s] byte-compiling /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest/cv_node.py to cv_node.cpython-312.pyc
+[1.151s] running install_data
+[1.151s] running install_egg_info
+[1.161s] removing '/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info' (and everything under it)
+[1.161s] Copying ../../build/cvtest/cvtest.egg-info to /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info
+[1.162s] running install_scripts
+[1.233s] Installing cv_node script to /home/huang/ros2_ws/install/cvtest/lib/cvtest
+[1.233s] writing list of installed files to '/home/huang/ros2_ws/build/cvtest/install.log'
+[1.255s] Invoked command in '/home/huang/ros2_ws/src/cvtest' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/cvtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cvtest build --build-base /home/huang/ros2_ws/build/cvtest/build install --record /home/huang/ros2_ws/build/cvtest/install.log --single-version-externally-managed install_data

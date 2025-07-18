@@ -5,6 +5,7 @@ import numpy as np
 import cv2
 import glob
 from matplotlib.lines import Line2D
+import time
 
 AREA_MIN      = 2000 
 AR_MIN        = 2.5    
@@ -119,28 +120,49 @@ def _cluster_metrics(cluster):
     )
 
 def select_best_vertical_band(contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX, thresh=None):
+    cluster_start = time.perf_counter()
+    
+    info_start = time.perf_counter()
     infos = _large_contour_info(contours, area_min=area_min)
+    info_time = time.perf_counter() - info_start
+    print(f"    [CLUSTER] Contour info extraction took: {info_time*1000:.3f}ms (processed {len(infos)} valid contours)")
+    
     if not infos:
         return None, False, None, None, False
 
+    group_start = time.perf_counter()
     clusters = _cluster_by_x(infos, tol=merge_tol)
     cluster_infos = [_cluster_metrics(c) for c in clusters]
+    group_time = time.perf_counter() - group_start
+    print(f"    [CLUSTER] Grouping and metrics took: {group_time*1000:.3f}ms (created {len(clusters)} clusters)")
 
+    best_start = time.perf_counter()
     best = max(cluster_infos, key=lambda d: d['vert_score'])
 
     mask = np.zeros_like(thresh, dtype=np.uint8)  
     cv2.drawContours(mask, best['contours'], -1, 255, thickness=-1)
 
     is_vertical = (best['ar'] >= ar_min)
+    best_time = time.perf_counter() - best_start
+    print(f"    [CLUSTER] Best selection and mask creation took: {best_time*1000:.3f}ms")
+
+    total_cluster = time.perf_counter() - cluster_start
+    print(f"    [CLUSTER] Total clustering took: {total_cluster*1000:.3f}ms")
 
     return mask, is_vertical, best['xc'], best, True
 
 
-def process(img):
-    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(7, 7))
-   
+def process_linreg(img):
+    process_start = time.perf_counter()  # More precise timer
+    print(f"  [LINREG] Starting linear regression processing (image shape: {img.shape})")
+    
+    # Keep all original processing logic, just remove matplotlib
+    gray_start = time.perf_counter()
     imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_time = time.perf_counter() - gray_start
+    print(f"  [LINREG] Color conversion took: {gray_time*1000:.3f}ms")
 
+    morph_start = time.perf_counter()
     kernel_dilation = np.ones((5, 5), np.uint8)
     dilation = cv2.dilate(imgray, kernel_dilation, iterations=4)
     
@@ -148,13 +170,22 @@ def process(img):
     blur = cv2.filter2D(dilation, -1, kernel_blur)
     
     _, thresh = cv2.threshold(blur, 254, 255, cv2.THRESH_BINARY)
+    morph_time = time.perf_counter() - morph_start
+    print(f"  [LINREG] Morphological operations took: {morph_time*1000:.3f}ms")
     
+    contour_start = time.perf_counter()
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contour_time = time.perf_counter() - contour_start
+    print(f"  [LINREG] Contour finding took: {contour_time*1000:.3f}ms (found {len(contours)} contours)")
     
+    cluster_start = time.perf_counter()
     mask, cluster_vertical, xc, cluster_info, found_big = select_best_vertical_band(
         contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_tol=X_CLUSTER_PX, thresh=thresh
     )
+    cluster_time = time.perf_counter() - cluster_start
+    print(f"  [LINREG] Clustering took: {cluster_time*1000:.3f}ms")
     
+    regression_start = time.perf_counter()
     if found_big:
         pts_src = mask
     else:
@@ -170,10 +201,12 @@ def process(img):
         x0 = xc
     else:
         m, b, vertical, x0 = calculate_regression(pts)
+    regression_time = time.perf_counter() - regression_start
+    print(f"  [LINREG] Regression calculation took: {regression_time*1000:.3f}ms (processed {len(pts)} points)")
     
-    #display_img = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
-    #display_img = cv2.cvtColor(imgray, cv2.COLOR_GRAY2BGR)
-    display_img = (img)
+    # Create display image with original processing results
+    draw_start = time.perf_counter()
+    display_img = img.copy()
     for cnt in contours:
         if cv2.contourArea(cnt) < AREA_MIN:
             continue
@@ -185,17 +218,17 @@ def process(img):
         w = int(cluster_info['w']); h = int(cluster_info['h'])
         cv2.rectangle(display_img, (x, y), (x + w, y + h), (255, 0, 255), 5)
     
+    # Draw the regression line using OpenCV instead of matplotlib
     if vertical:
         x = int(np.clip(round(x0), 0, imgray.shape[1] - 1))
-        ax.plot([x, x], [0, imgray.shape[0] - 1], color='lime', linewidth=5)
+        cv2.line(display_img, (x, 0), (x, imgray.shape[0] - 1), (0, 255, 0), 5)
     elif not np.isnan(m) and not np.isnan(b):
         x1, y1, x2, y2 = find_inliers(m, b, imgray.shape, vertical=False)
-        ax.plot([x1, x2], [y1, y2], color='lime', linewidth=3)
-    else:
-        ax.set_title("No valid line")
+        cv2.line(display_img, (x1, y1), (x2, y2), (0, 255, 0), 3)
+    draw_time = time.perf_counter() - draw_start
+    print(f"  [LINREG] Drawing took: {draw_time*1000:.3f}ms")
+    
+    total_time = time.perf_counter() - process_start
+    print(f"  [LINREG] Total processing took: {total_time*1000:.3f}ms")
         
-    ax.imshow(cv2.cvtColor(display_img, cv2.COLOR_BGR2RGB))
-    ax.axis('off')
-        
-    plt.tight_layout()
-    #plt.show()
+    return display_img

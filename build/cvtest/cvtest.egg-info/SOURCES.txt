@@ -9,6 +9,7 @@ setup.py
 ../../build/cvtest/cvtest.egg-info/top_level.txt
 ../../build/cvtest/cvtest.egg-info/zip-safe
 cvtest/__init__.py
+cvtest/colorSegment.py
 cvtest/cv_node.py
 cvtest/linreg.py
 resource/cvtest

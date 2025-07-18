@@ -4,41 +4,78 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 import cv2
 from cv_bridge import CvBridge
-from .linreg import process
+from .linreg import process_linreg
+from .colorSegment import process_color_segmentation
+import time
 
 class CvNode(Node):
     def __init__(self):
         super().__init__('cv_node')
         self.get_logger().info('CV Node has been started')
         self.last_callback_time = self.get_clock().now()
-        self.min_interval = 0.5 
+        self.min_interval = 0.07
         self.camera_subscriber_ = self.create_subscription(
             Image, '/camera/image_raw', self.camera_callback, 10) 
         self.camera_subscriber_.use_intra_process_comms = True
+
+        self.color_segmentation_publisher_ = self.create_publisher(Image, '/processed/color_segmentation', 10)
+        self.linear_regression_publisher_ = self.create_publisher(Image, '/processed/linear_regression', 10)
+        
         
     def camera_callback(self, msg):
         current_time = self.get_clock().now()
         dt = (current_time - self.last_callback_time).nanoseconds / 1e9
         if dt < self.min_interval:
-            return
+            return  # Exit early without processing
+        
+        # Only start timing and logging if we're actually going to process
+        callback_start = time.perf_counter()
+        print(f"[TIMING] Callback started (dt: {dt:.3f}s)")
         
         self.last_callback_time = current_time
-        self.get_logger().info('Received image with width: %d, height: %d' % (msg.width, msg.height))
 
         if not hasattr(self, 'bridge'):
             self.bridge = CvBridge()
-        self.get_logger().info(f'Image encoding: {msg.encoding}')
         
         # convert img format
         try:
+            conversion_start = time.perf_counter()
             if msg.encoding == 'mono8' or msg.encoding == 'mono16':
                 cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='mono8')
-                
                 cv_image = cv2.cvtColor(cv_image, cv2.COLOR_GRAY2BGR)
             else:
                 cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            conversion_time = time.perf_counter() - conversion_start
+            print(f"[TIMING] Image conversion took: {conversion_time*1000:.3f}ms (image size: {cv_image.shape})")
      
-            process(cv_image)
+            linreg_start = time.perf_counter()
+            linreg_result = process_linreg(cv_image)
+            linreg_time = time.perf_counter() - linreg_start
+            print(f"[TIMING] Linear regression took: {linreg_time*1000:.3f}ms")
+            
+            if linreg_result is not None:
+                publish_start = time.perf_counter()
+                linreg_msg = self.bridge.cv2_to_imgmsg(linreg_result, encoding='bgr8')
+                linreg_msg.header = msg.header
+                self.linear_regression_publisher_.publish(linreg_msg)
+                publish_time = time.perf_counter() - publish_start
+                print(f"[TIMING] Linear regression publishing took: {publish_time*1000:.3f}ms")
+
+            color_seg_start = time.perf_counter()
+            result_image, detected_objects = process_color_segmentation(cv_image)
+            color_seg_time = time.perf_counter() - color_seg_start
+            print(f"[TIMING] Color segmentation took: {color_seg_time*1000:.3f}ms")
+            
+            color_publish_start = time.perf_counter()
+            color_seg_msg = self.bridge.cv2_to_imgmsg(result_image, encoding='bgr8')
+            color_seg_msg.header = msg.header  
+            self.color_segmentation_publisher_.publish(color_seg_msg)
+            color_publish_time = time.perf_counter() - color_publish_start
+            print(f"[TIMING] Color segmentation publishing took: {color_publish_time*1000:.3f}ms")
+            
+            callback_total = time.perf_counter() - callback_start
+            print(f"[TIMING] Total callback took: {callback_total*1000:.3f}ms")
+            print("=" * 50)
             
         except Exception as e:
             self.get_logger().error(f'Error converting image: {str(e)}')
