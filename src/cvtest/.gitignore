@@ -1,0 +1,28 @@
+# Package-specific gitignore for cvtest
+
+# Local configuration files
+*_local.*
+config_local.*
+
+# Machine-specific camera calibration files
+calibration_*_local.*
+camera_params_*.yaml
+
+# Local test data and results
+test_data_local/
+results_local/
+*.local.bag
+*.local.mcap
+
+# Temporary processing files
+temp_*
+*.tmp_*
+
+# Local launch files with machine-specific parameters
+*_pi.launch.py
+*_desktop.launch.py
+*_$(hostname).launch.py
+
+# User-specific scripts
+run_local.*
+start_local.*

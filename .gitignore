@@ -1,0 +1,171 @@
+# ROS2 Workspace .gitignore
+
+# ROS2 Build and Install Directories
+# These contain machine-specific paths and compiled binaries
+build/
+install/
+log/
+
+# Colcon-specific files
+.colcon_install_layout
+.colcon_cmd_lines
+
+# CMake build files and cache
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Machine-specific configuration files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and test results
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# ROS-specific temporary files
+*.bag
+*.db3
+*.mcap
+
+# Debian/Ubuntu package files
+*.deb
+*.changes
+*.dsc
+*.tar.gz
+*.tar.xz
+
+# Documentation build outputs
+docs/_build/
+doc/_build/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Machine-specific launch configurations
+*_local.launch
+*_local.launch.py
+*_local.xml
+
+# User-specific configuration files that might contain paths
+*_config_local.*
+local_settings.*
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled Object files
+*.o
+*.obj
+*.elf
+*.ilk
+*.map
+*.exp
+*.gch
+*.pch
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Node.js (if using any web interfaces)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Gazebo/Simulation files that might be machine-specific
+.gazebo/
+models/
+worlds/local_*
+
+# Machine learning model files (often large and machine-specific)
+*.h5
+*.pkl
+*.pickle
+*.model
+*.weights
+
+# Custom machine-specific scripts (add your own patterns here)
+*_local_*
+*_machine_*
+*_$(whoami)_*
