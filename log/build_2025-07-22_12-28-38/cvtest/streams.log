@@ -1,0 +1,31 @@
+[0.587s] Invoking command in '/home/huang/ros2_ws/src/cvtest': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/cvtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cvtest build --build-base /home/huang/ros2_ws/build/cvtest/build install --record /home/huang/ros2_ws/build/cvtest/install.log --single-version-externally-managed install_data
+[0.735s] running egg_info
+[0.745s] writing ../../build/cvtest/cvtest.egg-info/PKG-INFO
+[0.746s] writing dependency_links to ../../build/cvtest/cvtest.egg-info/dependency_links.txt
+[0.746s] writing entry points to ../../build/cvtest/cvtest.egg-info/entry_points.txt
+[0.746s] writing requirements to ../../build/cvtest/cvtest.egg-info/requires.txt
+[0.746s] writing top-level names to ../../build/cvtest/cvtest.egg-info/top_level.txt
+[0.766s] reading manifest file '../../build/cvtest/cvtest.egg-info/SOURCES.txt'
+[0.766s] writing manifest file '../../build/cvtest/cvtest.egg-info/SOURCES.txt'
+[0.766s] running build
+[0.767s] running build_py
+[0.767s] copying cvtest/cv_node.py -> /home/huang/ros2_ws/build/cvtest/build/lib/cvtest
+[0.767s] copying cvtest/rotation.py -> /home/huang/ros2_ws/build/cvtest/build/lib/cvtest
+[0.767s] running install
+[0.771s] running install_lib
+[0.781s] copying /home/huang/ros2_ws/build/cvtest/build/lib/cvtest/cv_node.py -> /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest
+[0.781s] copying /home/huang/ros2_ws/build/cvtest/build/lib/cvtest/rotation.py -> /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest
+[0.782s] byte-compiling /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest/cv_node.py to cv_node.cpython-312.pyc
+[0.783s] byte-compiling /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest/rotation.py to rotation.cpython-312.pyc
+[0.783s] running install_data
+[0.783s] copying package.xml -> /home/huang/ros2_ws/install/cvtest/share/cvtest
+[0.783s] creating /home/huang/ros2_ws/install/cvtest/share/cvtest/launch
+[0.783s] copying launch/dual_camera_cv.launch.py -> /home/huang/ros2_ws/install/cvtest/share/cvtest/launch
+[0.783s] running install_egg_info
+[0.794s] removing '/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info' (and everything under it)
+[0.794s] Copying ../../build/cvtest/cvtest.egg-info to /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info
+[0.795s] running install_scripts
+[0.868s] Installing cv_node script to /home/huang/ros2_ws/install/cvtest/lib/cvtest
+[0.868s] Installing linreg_test script to /home/huang/ros2_ws/install/cvtest/lib/cvtest
+[0.868s] writing list of installed files to '/home/huang/ros2_ws/build/cvtest/install.log'
+[0.891s] Invoked command in '/home/huang/ros2_ws/src/cvtest' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/huang/ros2_ws/build/cvtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cvtest build --build-base /home/huang/ros2_ws/build/cvtest/build install --record /home/huang/ros2_ws/build/cvtest/install.log --single-version-externally-managed install_data

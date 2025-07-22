@@ -1,16 +1,16 @@
 import numpy as np
+import math
+l = 0.3
+d = 0.2
+h = 0.1
 
-Q = np.array([[3.0, 2.0, 1.0]])
-rotation_about_X = 45 
-translate_X_u = 1
-translate_Y_u = 2
-translate_Z_u = 3
+I_b = 1/12 * np.array([[h**2 + d**2, 0, 0],[0, l**2 + h**2, 0] , [0, 0, l**2 + d**2]])
 
-rotation_matrix = np.array([
-    [1, 0, 0],
-    [0, np.cos(np.radians(rotation_about_X)), -np.sin(np.radians(rotation_about_X))],
-    [0, np.sin(np.radians(rotation_about_X)), np.cos(np.radians(rotation_about_X))]
-])
-Q = Q @ rotation_matrix.T + np.array([[translate_X_u, translate_Y_u, translate_Z_u]])
+print(I_b)
 
-print(Q)
+acceleration = 4476 * math.pi/180
+print(acceleration)
+acceleration_vector = np.array([0, acceleration, 0])
+
+torque = np.dot(I_b, acceleration_vector)
+print(torque)

@@ -12,6 +12,7 @@
 /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest/__pycache__/__init__.cpython-312.pyc
 /home/huang/ros2_ws/install/cvtest/share/ament_index/resource_index/packages/cvtest
 /home/huang/ros2_ws/install/cvtest/share/cvtest/package.xml
+/home/huang/ros2_ws/install/cvtest/share/cvtest/launch/dual_camera_cv.launch.py
 /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info/dependency_links.txt
 /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info/SOURCES.txt
 /home/huang/ros2_ws/install/cvtest/lib/python3.12/site-packages/cvtest-0.0.0-py3.12.egg-info/requires.txt
