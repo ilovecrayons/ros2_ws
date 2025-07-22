@@ -16,7 +16,7 @@ class CvNode(Node):
         self.min_interval = 0.07
         self.camera_subscriber_ = self.create_subscription(
             Image, '/camera/image_raw', self.camera_callback, 10) 
-        self.camera_subscriber_.use_intra_process_comms = True
+        self.camera_subscriber_.use_intra_process_comms = True # type: ignore
 
         self.color_segmentation_publisher_ = self.create_publisher(Image, '/processed/color_segmentation', 10)
         self.linear_regression_publisher_ = self.create_publisher(Image, '/processed/linear_regression', 10)

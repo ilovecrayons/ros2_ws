@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "cv_node = cvtest.cv_node:main"
+            "cv_node = cvtest.cv_node:main",
+            "linreg_test = cvtest.linreg_test:main",
         ],
     },
 )

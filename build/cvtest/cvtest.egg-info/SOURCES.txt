@@ -12,6 +12,8 @@ cvtest/__init__.py
 cvtest/colorSegment.py
 cvtest/cv_node.py
 cvtest/linreg.py
+cvtest/linreg_test.py
+cvtest/rotation.py
 resource/cvtest
 test/test_copyright.py
 test/test_flake8.py
