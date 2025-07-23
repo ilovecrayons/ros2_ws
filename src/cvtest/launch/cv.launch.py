@@ -12,7 +12,7 @@ def generate_launch_description():
             name='downward_camera',
             namespace='downwardCamera',
             parameters=[
-                {'camera': '/base/soc/i2c0mux/i2c@1/ov5647@36'},
+                {'camera': '/base/axi/pcie@120000/rp1/i2c@88000/imx708@1a'},
                 {'frame_id': 'downward_camera_frame'},
                 {'fps': 30.0},
                 {'width': 640},
@@ -28,7 +28,7 @@ def generate_launch_description():
             name='front_camera',
             namespace='frontCamera',
             parameters=[
-                {'camera': '/base/soc/i2c0mux/i2c@1/ov5647@37'},
+                {'camera': '/base/axi/pcie@120000/rp1/i2c@80000/imx708@1a'},
                 {'frame_id': 'front_camera_frame'},
                 {'fps': 30.0},
                 {'width': 640},

@@ -45,7 +45,7 @@ def calculate_regression(points, slope_limit=SLOPE_LIMIT, var_ratio=VAR_RATIO):
 def find_inliers(m, b, shape, vertical=False, x0=None):
     h, w = shape
     if vertical:
-        x = int(np.clip(round(x0), 0, w - 1))
+        x = int(np.clip(round(x0), 0, w - 1)) # type: ignore
         return x, 0, x, h - 1
     
     x1 = 0
@@ -142,7 +142,7 @@ def select_best_vertical_band(contours, area_min=AREA_MIN, ar_min=AR_MIN, merge_
     mask = np.zeros_like(thresh, dtype=np.uint8)  
     cv2.drawContours(mask, best['contours'], -1, 255, thickness=-1)
 
-    is_vertical = (best['ar'] >= ar_min)
+    is_vertical = (best['ar'] >= ar_min) # type: ignore
     best_time = time.perf_counter() - best_start
     print(f"    [CLUSTER] Best selection and mask creation took: {best_time*1000:.3f}ms")
 
@@ -191,7 +191,7 @@ def process_linreg(img):
     else:
         pts_src = thresh  
     
-    pts = np.column_stack(np.nonzero(pts_src))
+    pts = np.column_stack(np.nonzero(pts_src)) # type: ignore
     
     force_vertical = cluster_vertical and found_big
     
@@ -214,13 +214,13 @@ def process_linreg(img):
         cv2.rectangle(display_img, (x, y), (x + w, y + h), (0, 255, 0), 5)
     
     if found_big and cluster_info is not None:
-        x = int(cluster_info['x']); y = int(cluster_info['y'])
-        w = int(cluster_info['w']); h = int(cluster_info['h'])
+        x = int(cluster_info['x']); y = int(cluster_info['y']) # type: ignore
+        w = int(cluster_info['w']); h = int(cluster_info['h']) # type: ignore
         cv2.rectangle(display_img, (x, y), (x + w, y + h), (255, 0, 255), 5)
     
     # Draw the regression line using OpenCV instead of matplotlib
     if vertical:
-        x = int(np.clip(round(x0), 0, imgray.shape[1] - 1))
+        x = int(np.clip(round(x0), 0, imgray.shape[1] - 1)) # type: ignore
         cv2.line(display_img, (x, 0), (x, imgray.shape[0] - 1), (0, 255, 0), 5)
     elif not np.isnan(m) and not np.isnan(b):
         x1, y1, x2, y2 = find_inliers(m, b, imgray.shape, vertical=False)

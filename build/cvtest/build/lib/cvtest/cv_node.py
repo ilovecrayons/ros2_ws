@@ -20,22 +20,22 @@ class CvNode(Node):
         
         # Downward camera subscriber (for linear regression)
         self.downward_camera_subscriber_ = self.create_subscription(
-            Image, '/camera/downward/image_raw', self.downward_camera_callback, 10)
+            Image, '/downwardCamera/image_raw', self.downward_camera_callback, 10)
         self.downward_camera_subscriber_.use_intra_process_comms = True # type: ignore
         
         # Front camera subscriber (for color segmentation)
         self.front_camera_subscriber_ = self.create_subscription(
-            Image, '/camera/front/image_raw', self.front_camera_callback, 10)
+            Image, '/frontCamera/image_raw', self.front_camera_callback, 10)
         self.front_camera_subscriber_.use_intra_process_comms = True # type: ignore
 
         # Publishers
         self.color_segmentation_publisher_ = self.create_publisher(Image, '/processed/color_segmentation', 10)
         self.linear_regression_publisher_ = self.create_publisher(Image, '/processed/linear_regression', 10)
-        
-        self.get_logger().info('Subscribed to downward camera: /camera/downward/image_raw')
-        self.get_logger().info('Subscribed to front camera: /camera/front/image_raw')
-        
-        
+
+        self.get_logger().info('Subscribed to downward camera: /downwardCamera/image_raw')
+        self.get_logger().info('Subscribed to front camera: /frontCamera/image_raw')
+
+
     def downward_camera_callback(self, msg):
         """Process downward camera feed for linear regression"""
         current_time = self.get_clock().now()
