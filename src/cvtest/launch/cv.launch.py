@@ -5,40 +5,34 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        # Downward camera (camera 0) - for linear regression
+        # Downward camera - for linear regression
         Node(
             package='camera_ros',
             executable='camera_node',
             name='downward_camera',
+            namespace='downwardCamera',
             parameters=[
-                {'camera_id': 0},
+                {'camera': '/base/soc/i2c0mux/i2c@1/ov5647@36'},
                 {'frame_id': 'downward_camera_frame'},
                 {'fps': 30.0},
                 {'width': 640},
                 {'height': 480}
             ],
-            remappings=[
-                ('image_raw', '/camera/downward/image_raw'),
-                ('camera_info', '/camera/downward/camera_info')
-            ],
             output='screen'
         ),
         
-        # Front-facing camera (camera 1) - for color segmentation
+        # Front-facing camera - for color segmentation
         Node(
             package='camera_ros',
             executable='camera_node',
             name='front_camera',
+            namespace='frontCamera',
             parameters=[
-                {'camera_id': 1},
+                {'camera': '/base/soc/i2c0mux/i2c@1/ov5647@37'},
                 {'frame_id': 'front_camera_frame'},
                 {'fps': 30.0},
                 {'width': 640},
                 {'height': 480}
-            ],
-            remappings=[
-                ('image_raw', '/camera/front/image_raw'),
-                ('camera_info', '/camera/front/camera_info')
             ],
             output='screen'
         ),
